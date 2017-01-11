@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PasodeValores.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,6 +26,22 @@ namespace PasodeValores.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public ActionResult Facturacion()
+        {
+            EFactura factura = new EFactura();
+            factura.Fecha= DateTime.Now.Date.ToString();
+            return View(factura);
+        }
+        [HttpPost]
+        public ActionResult Facturacion(string Serie, DateTime fecha)
+        {
+            string fechita;
+            EFactura factura = new EFactura();
+            factura.Serie = Serie;
+            fechita= fecha.ToShortDateString();
+            ViewBag.Fecha = DateTime.Now;
+            return View(factura);
         }
     }
 }
