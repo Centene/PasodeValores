@@ -40,7 +40,7 @@ namespace PasodeValores.Controllers
             EFactura factura = new EFactura();
             factura.Serie = Serie;
             fechita= fecha.ToShortDateString();
-            ViewBag.Fecha = DateTime.Now;
+            
             return View(factura);
         }
     }
